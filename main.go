@@ -1,6 +1,7 @@
 package main
 
 import (
+<<<<<<< HEAD
 	"Cinema_System_Project/config"
 	"Cinema_System_Project/handlers"
 	"log"
@@ -31,4 +32,16 @@ func main() {
 
 	log.Println("Server listening on :8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
+=======
+	"Cinema_System_Project/handlers"
+	"net/http"
+)
+
+func main() {
+	http.HandleFunc("/login", handlers.Login)
+	http.HandleFunc("/movies", handlers.Movies)
+	http.HandleFunc("/book", handlers.Book)
+
+	http.ListenAndServe(":8080", nil)
+>>>>>>> 4142582408678f7224d51308477e7c2e51a6b94b
 }

@@ -1,5 +1,6 @@
 module Cinema_System_Project
 
+<<<<<<< HEAD
 go 1.21
 
 require go.mongodb.org/mongo-driver v1.13.1
@@ -16,3 +17,6 @@ require (
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 )
+=======
+go 1.25
+>>>>>>> 4142582408678f7224d51308477e7c2e51a6b94b

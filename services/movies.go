@@ -1,5 +1,6 @@
 package services
 
+<<<<<<< HEAD
 import (
 	"Cinema_System_Project/db"
 	"Cinema_System_Project/models"
@@ -31,4 +32,9 @@ func AddMovie(movie models.Movie) (primitive.ObjectID, error) {
 
 func RemoveMovie(id primitive.ObjectID) error {
 	return db.DeleteMovie(id)
+=======
+func GetMovies() {
+
+>>>>>>> 4142582408678f7224d51308477e7c2e51a6b94b
 }
+///
