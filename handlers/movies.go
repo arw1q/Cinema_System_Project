@@ -23,6 +23,7 @@ func Movies(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// GET /movies — any user can browse
 func getMovies(w http.ResponseWriter, r *http.Request) {
 	movies, err := services.GetMovies()
 	if err != nil {
@@ -34,6 +35,7 @@ func getMovies(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(movies)
 }
 
+// POST /movies?role=admin — admin only
 func addMovie(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Query().Get("role") != "admin" {
 		http.Error(w, "forbidden: admin only", http.StatusForbidden)
@@ -57,12 +59,14 @@ func addMovie(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{"id": id.Hex()})
 }
 
+// DELETE /movies/{id}?role=admin — admin only
 func removeMovie(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Query().Get("role") != "admin" {
 		http.Error(w, "forbidden: admin only", http.StatusForbidden)
 		return
 	}
 
+	// extract the id from the end of the path: /movies/{id}
 	parts := strings.Split(strings.Trim(r.URL.Path, "/"), "/")
 	idStr := parts[len(parts)-1]
 
