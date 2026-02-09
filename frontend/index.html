@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BahaCinema - Book Your Experience with Bakyt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>BahaCinema</h1>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="nav-link" onclick="showPage('home')">Movies</a>
+                <a href="#" class="nav-link" onclick="showPage('bookings')">My Bookings</a>
+                <div class="nav-auth" id="navAuth"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="loginPage" class="page active">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h2 class="auth-title">Welcome Back</h2>
+                <p class="auth-subtitle">Sign in to book your next cinematic adventure</p>
+
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchAuthTab('user')">User</button>
+                    <button class="tab-btn" onclick="switchAuthTab('admin')">Admin</button>
+                </div>
+
+                <div id="userAuthForm">
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" id="loginUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Sign In</button>
+                    </form>
+
+                    <div class="auth-divider">
+                        <span>Don't have an account?</span>
+                    </div>
+
+                    <form id="registerForm" onsubmit="handleRegister(event)">
+                        <div class="form-group">
+                            <label>Create Username</label>
+                            <input type="text" id="registerUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Create Password</label>
+                            <input type="password" id="registerPassword" required>
+                        </div>
+                        <button type="submit" class="btn-secondary">Create Account</button>
+                    </form>
+                </div>
+
+                <div id="adminAuthForm" style="display: none;">
+                    <form onsubmit="handleAdminLogin(event)">
+                        <div class="form-group">
+                            <label>Admin Username</label>
+                            <input type="text" id="adminUsername" value="admin" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Admin Password</label>
+                            <input type="password" id="adminPassword" value="12345" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Admin Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="homePage" class="page">
+        <div class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Experience Cinema<br>With Baxa</h1>
+                <p class="hero-subtitle">Discover the best movies in the world</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2>Now Showing</h2>
+                <div id="adminControls" style="display: none;">
+                    <button class="btn-admin" onclick="showAddMovie()">+ Add Movie</button>
+                </div>
+            </div>
+
+            <div id="moviesList" class="movies-grid"></div>
+        </div>
+    </div>
+
+    <div id="movieDetailPage" class="page">
+        <div class="container">
+            <button class="btn-back" onclick="showPage('home')">← Back to Movies</button>
+            <div id="movieDetail"></div>
+        </div>
+    </div>
+
+    <div id="bookingsPage" class="page">
+        <div class="container">
+            <h2 class="page-title">My Bookings</h2>
+            <div id="bookingsList"></div>
+        </div>
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<div id="notification" class="notification"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
