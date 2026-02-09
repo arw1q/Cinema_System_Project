@@ -598,7 +598,7 @@ async function deleteSession(sessionId) {
         showNotification('Error deleting session', 'error');
     }
 }
-
+// correct mistake of deleting booking
 async function deleteBooking(bookingId) {
     if (!confirm('Are you sure you want to delete this booking?')) {
         return;
