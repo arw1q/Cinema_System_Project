@@ -1,6 +1,6 @@
 # Baha Cinema
 
-Baha Cinema is an Advanced Programming Final Project that represents a cinema management system. The project demonstrates backend service development, database integration, and basic frontend interaction.
+Baha Cinema is a cinema management system. The project demonstrates backend service development, database integration, and basic frontend interaction.
 
 The system provides a REST API for user authentication, movie management, session scheduling, and ticket booking. The backend is written in Go and follows a structured, layered architecture.
 
