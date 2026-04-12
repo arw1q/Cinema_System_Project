@@ -29,7 +29,4 @@ GET    /api/bookings/all (Auth required)
 ## Project Type
 Advanced Programming Final Project
 
-## Authors
-Arlan  
-Ersultan  
-Bakyt
+
